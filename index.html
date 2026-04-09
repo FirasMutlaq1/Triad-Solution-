@@ -1042,20 +1042,6 @@
     }
 
     /* svc progress bar */
-    .svc-progress {
-      position: absolute;
-      bottom: 0; left: 0;
-      height: 2px;
-      background: rgba(255,255,255,.08);
-      width: 100%;
-    }
-    .svc-progress-bar {
-      height: 100%;
-      background: var(--white);
-      width: 0%;
-      transition: width .05s linear;
-    }
-
     /* svc nav dots */
     .svc-dots {
       position: absolute;
@@ -1084,6 +1070,7 @@
       inset: 0 100% 0 0;
       background: #fff;
       border-radius: 100px;
+      transition: right .05s linear;
     }
     .svc-dot.active { --fill: 0%; }
     .svc-dot.active::after { right: calc(100% - var(--fill, 0%)); }
@@ -1464,7 +1451,6 @@
       <div class="svc-dot" data-i="1"></div>
       <div class="svc-dot" data-i="2"></div>
     </div>
-    <div class="svc-progress"><div class="svc-progress-bar" id="svcBar"></div></div>
   </div>
 </div>
 
@@ -1850,7 +1836,6 @@
   window.addEventListener('resize', updateHeroOrigin);
   const processPinEl  = document.getElementById('process-pin-container');
   const servicesPinEl = document.getElementById('services-pin-container');
-  const svcBar        = document.getElementById('svcBar');
 
   /* ═══════════════════════════════════════════════
      MAIN SCROLL HANDLER
@@ -1925,7 +1910,6 @@
         d.style.setProperty('--fill', fill.toFixed(1) + '%');
       }
     });
-    svcBar.style.width = (svcP * 100) + '%';
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
