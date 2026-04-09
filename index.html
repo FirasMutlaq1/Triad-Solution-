@@ -910,12 +910,29 @@
       z-index: 2;
     }
     .ps-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--g600);
-      transition: background .3s, transform .3s;
+      width: 6px; height: 6px;
+      border-radius: 100px;
+      background: rgba(255,255,255,.3);
+      transition: width .4s cubic-bezier(.16,1,.3,1), background .3s;
+      overflow: hidden;
+      position: relative;
     }
-    .ps-dot.active { background: var(--white); transform: scale(1.4); }
+    .ps-dot.active {
+      width: 36px;
+      background: rgba(255,255,255,.25);
+    }
+    .ps-dot.active::after {
+      content: '';
+      position: absolute;
+      inset: 0 100% 0 0;
+      background: #fff;
+      border-radius: 100px;
+      transition: right .05s linear;
+    }
+    .ps-dot.active[style] { }
+    /* fill controlled via JS with --fill custom prop */
+    .ps-dot.active { --fill: 0%; }
+    .ps-dot.active::after { right: calc(100% - var(--fill, 0%)); }
 
     /* ============================================
        PINNED SERVICES SECTION
@@ -1050,12 +1067,26 @@
       z-index: 2;
     }
     .svc-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--g600);
-      transition: background .3s, transform .3s;
+      width: 6px; height: 6px;
+      border-radius: 100px;
+      background: rgba(255,255,255,.3);
+      transition: width .4s cubic-bezier(.16,1,.3,1), background .3s;
+      overflow: hidden;
+      position: relative;
     }
-    .svc-dot.active { background: var(--white); transform: scale(1.4); }
+    .svc-dot.active {
+      width: 36px;
+      background: rgba(255,255,255,.25);
+    }
+    .svc-dot.active::after {
+      content: '';
+      position: absolute;
+      inset: 0 100% 0 0;
+      background: #fff;
+      border-radius: 100px;
+    }
+    .svc-dot.active { --fill: 0%; }
+    .svc-dot.active::after { right: calc(100% - var(--fill, 0%)); }
 
     /* "Tjänster" section label at top of pinned */
     .svc-label {
@@ -1868,7 +1899,13 @@
       if (i === idx)       s.classList.add('active');
       else if (i < idx)    s.classList.add('exit');
     });
-    psDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    psDots.forEach((d, i) => {
+      d.classList.toggle('active', i === idx);
+      if (i === idx) {
+        const fill = ((procP * stageCount) - idx) * 100;
+        d.style.setProperty('--fill', fill.toFixed(1) + '%');
+      }
+    });
 
     // ── SERVICES pinned stages ──
     const svcH   = servicesPinEl.offsetHeight - window.innerHeight;
@@ -1881,7 +1918,13 @@
     const svcIdx    = Math.min(svcCount - 1, Math.floor(svcP * svcCount));
 
     svcStages.forEach((s, i) => s.classList.toggle('active', i === svcIdx));
-    svcDots.forEach((d, i)   => d.classList.toggle('active', i === svcIdx));
+    svcDots.forEach((d, i) => {
+      d.classList.toggle('active', i === svcIdx);
+      if (i === svcIdx) {
+        const fill = ((svcP * svcCount) - svcIdx) * 100;
+        d.style.setProperty('--fill', fill.toFixed(1) + '%');
+      }
+    });
     svcBar.style.width = (svcP * 100) + '%';
   }
 
