@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Triad Solutions — Skräddarsydd mjukvara för SMB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@600&family=Montserrat:wght@100&display=swap" rel="stylesheet">
   <style>
     /* ============================================
        RESET & BASE
@@ -120,7 +123,7 @@
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 900;
-      height: 58px;
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -140,6 +143,10 @@
       text-decoration: none;
     }
     .nav-logo-svg { height: 28px; width: auto; flex-shrink: 0; }
+    .nav-logo-dark  { height: 56px; width: auto; flex-shrink: 0; display: block; }
+    .nav-logo-light { height: 56px; width: auto; flex-shrink: 0; display: none; }
+    #nav.light .nav-logo-dark  { display: none; }
+    #nav.light .nav-logo-light { display: block; }
     .nav-wordmark { display: flex; flex-direction: column; line-height: 1.1; }
     .nav-triad    { font-size: 13px; font-weight: 700; letter-spacing: .13em; color: var(--white); }
     .nav-sol      { font-size: 8px;  font-weight: 300; letter-spacing: .22em; color: var(--g400); }
@@ -207,7 +214,7 @@
       .nav-links {
         display: none;
         position: fixed;
-        top: 58px; left: 0; right: 0;
+        top: 72px; left: 0; right: 0;
         background: rgba(0,0,0,.96);
         backdrop-filter: blur(24px);
         flex-direction: column;
@@ -250,18 +257,22 @@
     }
 
     #hero-triad {
+      font-family: 'Roboto', sans-serif;
       font-size: clamp(90px, 18vw, 220px);
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: -.03em;
+      text-transform: uppercase;
       color: #000000;
       line-height: 0.88;
       display: block;
     }
 
     #hero-solutions {
+      font-family: 'Montserrat', sans-serif;
       font-size: clamp(14px, 2.8vw, 36px);
-      font-weight: 300;
+      font-weight: 100;
       letter-spacing: .38em;
+      text-transform: uppercase;
       color: #000000;
       display: block;
       margin-top: .18em;
@@ -1117,31 +1128,9 @@
      NAVBAR
 ============================================================ -->
 <nav id="nav">
-  <a href="#hero" class="nav-brand">
-    <!-- Venn logo mark -->
-    <svg class="nav-logo-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="nav-rg" cx="50%" cy="50%" r="55%" gradientUnits="objectBoundingBox">
-          <stop offset="0%"   stop-color="#909090"/>
-          <stop offset="60%"  stop-color="#d8d8d8"/>
-          <stop offset="100%" stop-color="#ffffff"/>
-        </radialGradient>
-      </defs>
-      <!-- blade pointing up -->
-      <path d="M100,22 C132,34 136,70 120,98 C112,82 88,82 80,98 C64,70 68,34 100,22Z" fill="url(#nav-rg)"/>
-      <!-- blade pointing bottom-right -->
-      <g transform="rotate(120,100,100)">
-        <path d="M100,22 C132,34 136,70 120,98 C112,82 88,82 80,98 C64,70 68,34 100,22Z" fill="url(#nav-rg)"/>
-      </g>
-      <!-- blade pointing bottom-left -->
-      <g transform="rotate(240,100,100)">
-        <path d="M100,22 C132,34 136,70 120,98 C112,82 88,82 80,98 C64,70 68,34 100,22Z" fill="url(#nav-rg)"/>
-      </g>
-    </svg>
-    <div class="nav-wordmark">
-      <span class="nav-triad">TRIAD</span>
-      <span class="nav-sol">SOLUTIONS</span>
-    </div>
+  <a href="/" class="nav-brand">
+    <img src="Logo_White Icon.png" alt="Triad Solutions" class="nav-logo-dark" />
+    <img src="Logo_Black Icon.png" alt="Triad Solutions" class="nav-logo-light" />
   </a>
 
   <ul class="nav-links" id="navLinks">
@@ -1169,7 +1158,7 @@
 <div id="hero-scroll-container">
   <div id="hero-sticky">
     <div id="hero-title">
-      <span id="hero-triad">TRIAD</span>
+      <span id="hero-triad">TR<span id="hero-i">I</span>AD</span>
       <span id="hero-solutions">SOLUTIONS</span>
     </div>
 
@@ -1633,27 +1622,13 @@
 <footer>
   <div class="foot-inner">
     <div class="foot-brand">
-      <svg height="22" width="22" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="foot-rg" cx="50%" cy="50%" r="55%" gradientUnits="objectBoundingBox">
-            <stop offset="0%"   stop-color="#333333"/>
-            <stop offset="100%" stop-color="#555555"/>
-          </radialGradient>
-        </defs>
-        <path d="M100,22 C132,34 136,70 120,98 C112,82 88,82 80,98 C64,70 68,34 100,22Z" fill="url(#foot-rg)"/>
-        <g transform="rotate(120,100,100)">
-          <path d="M100,22 C132,34 136,70 120,98 C112,82 88,82 80,98 C64,70 68,34 100,22Z" fill="url(#foot-rg)"/>
-        </g>
-        <g transform="rotate(240,100,100)">
-          <path d="M100,22 C132,34 136,70 120,98 C112,82 88,82 80,98 C64,70 68,34 100,22Z" fill="url(#foot-rg)"/>
-        </g>
-      </svg>
+      <img src="Logo_White Icon.png" alt="Triad Solutions" style="height:22px;width:auto;opacity:.45;" />
       <span class="foot-brand-text">TRIAD SOLUTIONS</span>
     </div>
     <span class="foot-copy">© 2026 Triad Solutions AB. Alla rättigheter förbehållna.</span>
     <div class="foot-links">
-      <a href="#">Integritetspolicy</a>
-      <a href="#">Villkor</a>
+      <a href="#" id="link-privacy">Integritetspolicy</a>
+      <a href="#" id="link-terms">Villkor</a>
       <a href="#contact">Kontakt</a>
     </div>
   </div>
@@ -1661,9 +1636,153 @@
 
 
 <!-- ============================================================
+     COOKIE CONSENT
+============================================================ -->
+<style>
+  #cookie-banner {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+    background: #111;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px;
+    padding: 24px 28px;
+    max-width: 560px;
+    width: calc(100% - 48px);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.6);
+    opacity: 0;
+    transition: opacity .4s ease, transform .4s ease;
+    pointer-events: none;
+  }
+  #cookie-banner.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #cookie-banner.hiding {
+    opacity: 0;
+    transform: translateX(-50%) translateY(16px);
+  }
+  .cookie-text {
+    flex: 1;
+    font-size: 13px;
+    color: var(--g400);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .cookie-text a { color: var(--g400); text-decoration: underline; text-underline-offset: 3px; }
+  .cookie-text a:hover { color: #fff; }
+  .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
+  @media (max-width: 560px) {
+    #cookie-banner { flex-direction: column; align-items: stretch; }
+    .cookie-btns { justify-content: flex-end; }
+  }
+</style>
+
+<div id="cookie-banner">
+  <p class="cookie-text">Vi använder cookies för att förbättra din upplevelse. Läs vår <a href="#" id="cookie-privacy-link">integritetspolicy</a>.</p>
+  <div class="cookie-btns">
+    <button class="btn btn-sm" id="cookie-decline" style="background:rgba(255,255,255,.07);color:var(--g400);border:1px solid rgba(255,255,255,.1);">Neka</button>
+    <button class="btn btn-sm btn-white" id="cookie-accept">Acceptera</button>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     MODALS — Integritetspolicy & Villkor
+============================================================ -->
+<style>
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.72);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal-box {
+    background: #111;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 20px;
+    max-width: 680px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 48px;
+    position: relative;
+  }
+  .modal-box h2 {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -.02em;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .modal-box p {
+    font-size: 14px;
+    color: var(--g400);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none;
+    border: none;
+    color: var(--g600);
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+    transition: color .2s;
+  }
+  .modal-close:hover { color: #fff; }
+</style>
+
+<div class="modal-backdrop" id="modal-privacy">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-privacy">✕</button>
+    <h2>Integritetspolicy</h2>
+    <p>Triad Solutions AB ("vi", "oss") värnar om din personliga integritet. Denna policy förklarar hur vi samlar in, använder och skyddar dina personuppgifter i enlighet med GDPR.</p>
+    <p><strong style="color:#fff;font-weight:400;">Vilka uppgifter samlar vi in?</strong><br>Vi samlar in uppgifter som du lämnar via vårt kontaktformulär: namn, e-postadress, telefonnummer och företag.</p>
+    <p><strong style="color:#fff;font-weight:400;">Hur används uppgifterna?</strong><br>Uppgifterna används enbart för att besvara din förfrågan och för att etablera en affärsrelation. Vi säljer aldrig dina uppgifter till tredje part.</p>
+    <p><strong style="color:#fff;font-weight:400;">Lagring</strong><br>Dina uppgifter lagras så länge det är nödvändigt för att uppfylla ändamålet, därefter raderas de.</p>
+    <p><strong style="color:#fff;font-weight:400;">Dina rättigheter</strong><br>Du har rätt att begära tillgång till, rättelse av eller radering av dina uppgifter. Kontakta oss på <a href="mailto:info@triadsolutions.se" style="color:#fff;">info@triadsolutions.se</a>.</p>
+    <p style="margin-bottom:0;">Senast uppdaterad: April 2026</p>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-terms">
+  <div class="modal-box">
+    <button class="modal-close" data-close="modal-terms">✕</button>
+    <h2>Allmänna villkor</h2>
+    <p>Dessa villkor gäller för alla tjänster som tillhandahålls av Triad Solutions AB, org. nr. [XXXXXX-XXXX], ("Triad Solutions").</p>
+    <p><strong style="color:#fff;font-weight:400;">Tjänster</strong><br>Triad Solutions levererar skräddarsydda mjukvarulösningar enligt överenskommelse i separat projektavtal. Varje uppdrag regleras av ett skriftligt avtal som specificerar omfattning, pris och tidsplan.</p>
+    <p><strong style="color:#fff;font-weight:400;">Betalning</strong><br>Fakturering sker enligt det avtal som tecknats per projekt. Betalningsvillkor är 30 dagar netto om inget annat avtalats.</p>
+    <p><strong style="color:#fff;font-weight:400;">Immateriella rättigheter</strong><br>Kunden erhåller full äganderätt till levererad kod och material efter slutbetalning. Triad Solutions förbehåller sig rätten att referera till projektet i marknadsföringssyfte om inte annat avtalas.</p>
+    <p><strong style="color:#fff;font-weight:400;">Ansvarsbegränsning</strong><br>Triad Solutions ansvar är begränsat till det belopp som fakturerats för det aktuella projektet.</p>
+    <p style="margin-bottom:0;">Senast uppdaterade: April 2026</p>
+  </div>
+</div>
+
+
+<!-- ============================================================
      JAVASCRIPT
 ============================================================ -->
 <script>
+  // Always start at top after reload
+  history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
   /* ═══════════════════════════════════════════════
      ELEMENT REFS
   ═══════════════════════════════════════════════ */
@@ -1671,7 +1790,32 @@
   const heroContainer = document.getElementById('hero-scroll-container');
   const heroSticky    = document.getElementById('hero-sticky');
   const heroTitle     = document.getElementById('hero-title');
+  const heroI         = document.getElementById('hero-i');
   const scrollHint    = document.getElementById('scroll-hint');
+
+  let iOffsetX = 0, iOffsetY = 0;
+
+  function updateHeroOrigin() {
+    heroTitle.style.transform = 'scale(1)';
+    const tr = heroTitle.getBoundingClientRect();
+    const ir = heroI.getBoundingClientRect();
+    const vcx = window.innerWidth  / 2;
+    const vcy = window.innerHeight / 2;
+    const x = ((vcx - tr.left) / tr.width  * 100).toFixed(2);
+    const y = ((vcy - tr.top)  / tr.height * 100).toFixed(2);
+    heroTitle.style.transformOrigin = `${x}% ${y}%`;
+    iOffsetX = (ir.left + ir.width  / 2) - vcx;
+    iOffsetY = (ir.top  + ir.height / 2) - vcy;
+    onScroll(); // Re-apply with correct offsets
+  }
+  // Wait for the exact fonts used in the hero title to be rendered
+  Promise.all([
+    document.fonts.load('600 220px Roboto'),
+    document.fonts.load('100 220px Montserrat')
+  ]).then(() => requestAnimationFrame(updateHeroOrigin));
+  // Safari fallback in case Promise.all resolves early
+  setTimeout(updateHeroOrigin, 800);
+  window.addEventListener('resize', updateHeroOrigin);
   const processPinEl  = document.getElementById('process-pin-container');
   const servicesPinEl = document.getElementById('services-pin-container');
   const svcBar        = document.getElementById('svcBar');
@@ -1684,8 +1828,9 @@
     const heroH = heroContainer.offsetHeight - window.innerHeight;
     const p     = Math.max(0, Math.min(1, y / heroH));
 
-    // Hero zoom + bg
-    heroTitle.style.transform = `scale(${1 + p * 39})`;
+    // Hero zoom + bg — translate so the I stays on viewport center
+    const s = 1 + p * 39;
+    heroTitle.style.transform = `scale(${s}) translate(${-iOffsetX}px, ${-iOffsetY}px)`;
     const w = Math.round(255 * Math.max(0, 1 - p / 0.55));
     heroSticky.style.background = `rgb(${w},${w},${w})`;
 
@@ -1852,6 +1997,54 @@
     btn.textContent = 'Skickat! Vi återkommer inom 24 h.';
     btn.disabled = true;
   });
+
+  /* ═══════════════════════════════════════════════
+     MODALS
+  ═══════════════════════════════════════════════ */
+  document.getElementById('link-privacy').addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('modal-privacy').classList.add('open');
+  });
+  document.getElementById('link-terms').addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('modal-terms').classList.add('open');
+  });
+  document.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById(btn.dataset.close).classList.remove('open');
+    });
+  });
+  document.querySelectorAll('.modal-backdrop').forEach(modal => {
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.classList.remove('open');
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
+  });
+
+  /* ═══════════════════════════════════════════════
+     COOKIE CONSENT
+  ═══════════════════════════════════════════════ */
+  (function() {
+    if (localStorage.getItem('cookie_consent')) return;
+    const banner = document.getElementById('cookie-banner');
+    // Show after short delay so page has rendered
+    setTimeout(() => banner.classList.add('visible'), 600);
+
+    function dismiss(choice) {
+      localStorage.setItem('cookie_consent', choice);
+      banner.classList.add('hiding');
+      setTimeout(() => banner.remove(), 400);
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', () => dismiss('accepted'));
+    document.getElementById('cookie-decline').addEventListener('click', () => dismiss('declined'));
+    document.getElementById('cookie-privacy-link').addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('modal-privacy').classList.add('open');
+    });
+  })();
 </script>
 
 </body>
