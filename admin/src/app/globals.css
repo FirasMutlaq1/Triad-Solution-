@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --triad-teal: #00b4a8;
+  --triad-navy: #0a2540;
+  --triad-antracit: #2b2d2f;
+  --bg: #0a1020;
+  --surface: #0f1b35;
+  --surface-hi: #13254a;
+  --border: rgba(255, 255, 255, 0.08);
+  --muted: #8494b0;
+  --text: #e7ecf3;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Roboto", system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5 { font-family: "Montserrat", system-ui, sans-serif; }
+
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #00b4a8 0%, #0a2540 100%);
+}
+
+.ring-focus:focus-visible {
+  outline: 2px solid var(--triad-teal);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.16); }
+
+/* Scroll-hint: fades right edge on horizontally scrollable containers */
+.scroll-x-hint {
+  position: relative;
+}
+.scroll-x-hint::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, transparent, var(--bg));
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Highlight a task card when navigated to via #task-<id> anchor.
+   Used by the "Gå till projektet" button on the task detail modal. */
+@keyframes task-flash {
+  0%   { box-shadow: 0 0 0 0 rgba(0, 180, 168, 0.0); background-color: rgba(0, 180, 168, 0.12); }
+  20%  { box-shadow: 0 0 0 3px rgba(0, 180, 168, 0.65); background-color: rgba(0, 180, 168, 0.18); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 180, 168, 0.0); background-color: transparent; }
+}
+.task-anchor:target {
+  animation: task-flash 2.4s ease-out;
+}
